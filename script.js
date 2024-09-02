@@ -31,7 +31,7 @@ const playGame = (userChoice)=>{
         else{   
             userWin = compChoice==="rock"?false:true;
         }
-        showWinner(userWin)
+        showWinner(userWin,userChoice,compChoice)
     }
 }
 
@@ -41,17 +41,17 @@ const drawGame = ()=>{
 
 }
 
-const showWinner = (userWin)=>{
+const showWinner = (userWin,userChoice,compChoice)=>{
     if(userWin){
         console.log("User wins ");
-        document.getElementById("msg").textContent="You Won!!";
+        document.getElementById("msg").textContent=`You Won! Your ${userChoice} beats ${compChoice}`;
         document.getElementById("msg").style.backgroundColor = "green"
         userScore++;
         document.getElementById("user-score").textContent = userScore;
     }
     else{
         console.log("Computer wins")
-        document.getElementById("msg").textContent="You Lose "
+        document.getElementById("msg").textContent=`You Lose ${compChoice} beats your ${userChoice}`;
         document.getElementById("msg").style.backgroundColor = "red"
 
         compScore++;
